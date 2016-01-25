@@ -1,65 +1,48 @@
+
 //
-//  HomeController.m
+//  AddTableViewController.m
 //  通用框架
 //
-//  Created by Jusive on 16/1/11.
+//  Created by Jusive on 16/1/25.
 //  Copyright © 2016年 Jusive. All rights reserved.
 //
+#define kScreenWidth          [[UIScreen mainScreen] bounds].size.width / 2 -15
+#define kScreenHeight         [[UIScreen mainScreen] bounds].size.height / 2 - 40
+#define KScreenX              [[UIScreen mainScreen] bounds].size.width / 2 +2
+#define KScreenY              [[UIScreen mainScreen] bounds].origin.y / 2 + 70
 
-#import "HomeController.h"
-#import "MainController.h"
-#import "HomeModel.h"
-#import "HomeTableViewCell.h"
 #import "AddTableViewController.h"
-@interface HomeController ()
+#import "Addtable.h"
+#import "AddTableViewCell.h"
+@interface AddTableViewController ()
 @property (nonatomic,strong) NSArray *array;
 @end
-static NSString *ID = @"cell";
-@implementation HomeController
+static NSString *cells = @"cell";
+@implementation AddTableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.tableView registerClass:[AddTableViewCell class] forCellReuseIdentifier:cells];
+    self.view.frame = CGRectMake(KScreenX, KScreenY, kScreenWidth, kScreenHeight);
+}
 
 -(NSArray *)array{
     if (_array == nil) {
-        //获取json
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"products.json" ofType:nil];
-        //将json转换成data
-        NSData *data = [NSData dataWithContentsOfFile:path];
-        //将json转化成数组
-        
+        //获取json路径
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"more_project.json" ofType:nil];
+        //转化成二进制数据
+        NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:nil];
+        //将二进制转换成数组
         NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSMutableArray *arrayM = [NSMutableArray array];
         [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            HomeModel *model = [HomeModel homeWithDic:obj];
-            [arrayM addObject:model];
+            Addtable *addtable = [Addtable addtableWithDict:obj];
+            [arrayM addObject:addtable];
         }];
         _array = arrayM;
     }
     return _array;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
-    [self viewAppear];
-}
--(void)viewAppear{
-    UIBarButtonItem *LeftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"qq"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButton)];
-    self.navigationItem.leftBarButtonItem = LeftBarButtonItem;
-    UIBarButtonItem *RightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButton)];
-    self.navigationItem.rightBarButtonItem = RightBarButtonItem;
-}
--(void)leftBarButton{
-    MainController *main = [MainController new];
-    [[main sharedmainViewController] openLeftView];
-}
--(void)rightBarButton{
-    AddTableViewController *add = [AddTableViewController new];
-    [self.navigationController addChildViewController:add];
-    [self.navigationController.view addSubview:add.view];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -73,17 +56,15 @@ static NSString *ID = @"cell";
 }
 
 
--(HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeTableViewCell *cell = [[HomeTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-     HomeModel *home = self.array[indexPath.row];
-   cell.backgroundColor = [UIColor whiteColor];
-    cell.home = home;
+- (AddTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AddTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cells forIndexPath:indexPath];
+    Addtable *addmodel = self.array[indexPath.row];
+    cell.model = addmodel;
+    cell.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
-}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

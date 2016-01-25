@@ -25,6 +25,9 @@
 		9EB3FCDC1C55C3FB00DD3AC1 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDB1C55C3FB00DD3AC1 /* HomeModel.m */; };
 		9EB3FCDF1C55D8D800DD3AC1 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */; };
 		9EB3FCE11C56468B00DD3AC1 /* more_project.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB3FCE01C56468B00DD3AC1 /* more_project.json */; };
+		9EBD6BF91C5666600017BC92 /* AddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD6BF81C5666600017BC92 /* AddTableViewController.m */; };
+		9EBD6BFC1C566D2F0017BC92 /* Addtable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD6BFB1C566D2F0017BC92 /* Addtable.m */; };
+		9EBD6BFF1C566F960017BC92 /* AddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD6BFE1C566F960017BC92 /* AddTableViewCell.m */; };
 		9EBF56ED1C5515A1001E7F66 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF56EC1C5515A1001E7F66 /* MainController.m */; };
 		9EBF56FD1C552335001E7F66 /* MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF56F11C552335001E7F66 /* MessageController.m */; };
 		9EBF56FE1C552335001E7F66 /* MessageTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF56F31C552335001E7F66 /* MessageTabbarViewController.m */; };
@@ -94,6 +97,12 @@
 		9EB3FCDD1C55D8D800DD3AC1 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		9EB3FCE01C56468B00DD3AC1 /* more_project.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = more_project.json; sourceTree = "<group>"; };
+		9EBD6BF71C5666600017BC92 /* AddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTableViewController.h; sourceTree = "<group>"; };
+		9EBD6BF81C5666600017BC92 /* AddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTableViewController.m; sourceTree = "<group>"; };
+		9EBD6BFA1C566D2F0017BC92 /* Addtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Addtable.h; sourceTree = "<group>"; };
+		9EBD6BFB1C566D2F0017BC92 /* Addtable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Addtable.m; sourceTree = "<group>"; };
+		9EBD6BFD1C566F960017BC92 /* AddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTableViewCell.h; path = "通用框架/Classes/Add/Model/AddTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		9EBD6BFE1C566F960017BC92 /* AddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTableViewCell.m; path = "通用框架/Classes/Add/Model/AddTableViewCell.m"; sourceTree = SOURCE_ROOT; };
 		9EBF56EB1C5515A1001E7F66 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		9EBF56EC1C5515A1001E7F66 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		9EBF56F01C552335001E7F66 /* MessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageController.h; sourceTree = "<group>"; };
@@ -200,6 +209,8 @@
 			children = (
 				9E0D9A691C44AA2F0049A76C /* AddController.h */,
 				9E0D9A6A1C44AA2F0049A76C /* AddrController.m */,
+				9EBD6BF71C5666600017BC92 /* AddTableViewController.h */,
+				9EBD6BF81C5666600017BC92 /* AddTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -207,6 +218,8 @@
 		9E0D9A6C1C44AA2F0049A76C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9EBD6BFA1C566D2F0017BC92 /* Addtable.h */,
+				9EBD6BFB1C566D2F0017BC92 /* Addtable.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +234,8 @@
 		9E0D9A6E1C44AA2F0049A76C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9EBD6BFD1C566F960017BC92 /* AddTableViewCell.h */,
+				9EBD6BFE1C566F960017BC92 /* AddTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -738,6 +753,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E50B6031C43BBB900A93113 /* HomeController.m in Sources */,
+				9EBD6BFF1C566F960017BC92 /* AddTableViewCell.m in Sources */,
 				9EBF57061C552461001E7F66 /* MainTabBar.m in Sources */,
 				9E0D9A671C44878F0049A76C /* MoreViewController.m in Sources */,
 				9E0D9A781C44AA2F0049A76C /* AddrController.m in Sources */,
@@ -746,10 +762,12 @@
 				9E0D9A7A1C44AA2F0049A76C /* DiscoverContViewCell.m in Sources */,
 				9EBF570D1C55252B001E7F66 /* MainTabBarController.m in Sources */,
 				9EBF56ED1C5515A1001E7F66 /* MainController.m in Sources */,
+				9EBD6BF91C5666600017BC92 /* AddTableViewController.m in Sources */,
 				9E0D9A791C44AA2F0049A76C /* DiscoverController.m in Sources */,
 				9EBF57071C552461001E7F66 /* MainTabBarButton.m in Sources */,
 				9EBF56FF1C552335001E7F66 /* MessageViewController.m in Sources */,
 				9E50B5B51C43B77400A93113 /* AppDelegate.m in Sources */,
+				9EBD6BFC1C566D2F0017BC92 /* Addtable.m in Sources */,
 				9EBF57011C552335001E7F66 /* MessageTableViewCell.m in Sources */,
 				9EB3FCDF1C55D8D800DD3AC1 /* HomeTableViewCell.m in Sources */,
 				9E50B60C1C43BC5500A93113 /* MainViewController.m in Sources */,
