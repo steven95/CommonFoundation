@@ -11,16 +11,9 @@
 #import <Masonry.h>
 
 @interface HomeTableViewCell ()
-@property (nonatomic,strong) UIImageView *imv;
-@property (nonatomic,weak) UILabel *lal;
+
 @end
 @implementation HomeTableViewCell
--(instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-       
-    }
-    return self;
-}
 
 //-(void)layoutSubviews{
 //   
@@ -39,9 +32,11 @@
 //}
 -(void)setHome:(HomeModel *)home{
        _home = home;
-    self.imageView.image = [UIImage imageNamed:home.icon];
+NSMutableString *strM = (NSMutableString *)home.icon;
+ NSString *str =[strM stringByReplacingOccurrencesOfString:@"@2x.png" withString:@""];
+    NSLog(@"%@",str);
+     self.imageView.image = [UIImage imageNamed:str];
     self.textLabel.text = home.title;
-    
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

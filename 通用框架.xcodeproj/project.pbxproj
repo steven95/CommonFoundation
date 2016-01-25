@@ -24,6 +24,7 @@
 		9EB3FCD91C55B87400DD3AC1 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB3FCD81C55B87400DD3AC1 /* products.json */; };
 		9EB3FCDC1C55C3FB00DD3AC1 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDB1C55C3FB00DD3AC1 /* HomeModel.m */; };
 		9EB3FCDF1C55D8D800DD3AC1 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */; };
+		9EB3FCE11C56468B00DD3AC1 /* more_project.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB3FCE01C56468B00DD3AC1 /* more_project.json */; };
 		9EBF56ED1C5515A1001E7F66 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF56EC1C5515A1001E7F66 /* MainController.m */; };
 		9EBF56FD1C552335001E7F66 /* MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF56F11C552335001E7F66 /* MessageController.m */; };
 		9EBF56FE1C552335001E7F66 /* MessageTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF56F31C552335001E7F66 /* MessageTabbarViewController.m */; };
@@ -92,6 +93,7 @@
 		9EB3FCDB1C55C3FB00DD3AC1 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
 		9EB3FCDD1C55D8D800DD3AC1 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		9EB3FCE01C56468B00DD3AC1 /* more_project.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = more_project.json; sourceTree = "<group>"; };
 		9EBF56EB1C5515A1001E7F66 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		9EBF56EC1C5515A1001E7F66 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		9EBF56F01C552335001E7F66 /* MessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageController.h; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				9EB3FCD81C55B87400DD3AC1 /* products.json */,
+				9EB3FCE01C56468B00DD3AC1 /* more_project.json */,
 				9E50B5BC1C43B77400A93113 /* Assets.xcassets */,
 				9E50B5BE1C43B77400A93113 /* LaunchScreen.storyboard */,
 				9E50B5C11C43B77400A93113 /* Info.plist */,
@@ -660,6 +663,7 @@
 			files = (
 				9EB3FCD91C55B87400DD3AC1 /* products.json in Resources */,
 				9E50B5C01C43B77400A93113 /* LaunchScreen.storyboard in Resources */,
+				9EB3FCE11C56468B00DD3AC1 /* more_project.json in Resources */,
 				9E50B5BD1C43B77400A93113 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
