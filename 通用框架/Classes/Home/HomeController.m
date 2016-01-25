@@ -8,12 +8,32 @@
 
 #import "HomeController.h"
 #import "MainController.h"
+#import "HomeModel.h"
+#import "HomeTableViewCell.h"
 @interface HomeController ()
-
+@property (nonatomic,strong) NSArray *array;
 @end
 static NSString *ID = @"cell";
 @implementation HomeController
 
+-(NSArray *)array{
+    if (_array == nil) {
+        //获取json
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"products.json" ofType:nil];
+        //将json转换成data
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        //将json转化成数组
+        
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSMutableArray *arrayM = [NSMutableArray array];
+        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            HomeModel *model = [HomeModel homeWithDic:obj];
+            [arrayM addObject:model];
+        }];
+        _array = arrayM;
+    }
+    return _array.copy;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
@@ -46,13 +66,15 @@ static NSString *ID = @"cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.array.count;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+-(HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HomeTableViewCell *cell = [[HomeTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+     HomeModel *home = self.array[indexPath.row];
+   cell.backgroundColor = [UIColor whiteColor];
+    cell.home = home;
     return cell;
 }
 
