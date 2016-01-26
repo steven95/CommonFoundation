@@ -17,6 +17,7 @@
 #import "UIView+setFrame.h"
 #import "MainController.h"
 #import "MainViewController.h"
+#import "AddTableViewController.h"
 @interface MainController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UISwipeGestureRecognizer *leftswipeGestureRecongnizer;
 @property (nonatomic,strong) UISwipeGestureRecognizer *RightswipeGestureRecongnizer;
@@ -34,7 +35,6 @@ static MainController *mainviewController = nil;
         dispatch_once(&onceToken, ^{
             MainController *mainViewController = [MainController new];
             mainviewController = mainViewController;
-            
         });
     }
     return mainviewController;
@@ -42,7 +42,7 @@ static MainController *mainviewController = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     MainViewController *mainViewController = [MainViewController new];
-   [self addChildViewController:mainViewController];
+    [self addChildViewController:mainViewController];
     [self.view addSubview:mainViewController.view];
     [self SwipeGestureRecognizer];
 }

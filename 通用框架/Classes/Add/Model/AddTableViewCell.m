@@ -16,6 +16,7 @@
 @implementation AddTableViewCell
 
 -(void)setModel:(Addtable *)model{
+    
     self.imageView.image = [UIImage imageNamed:model.icon];
     self.textLabel.text = model.title;
 }

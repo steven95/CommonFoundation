@@ -1,4 +1,3 @@
-
 //
 //  AddTableViewController.m
 //  通用框架
@@ -24,6 +23,9 @@ static NSString *cells = @"cell";
     [super viewDidLoad];
     [self.tableView registerClass:[AddTableViewCell class] forCellReuseIdentifier:cells];
     self.view.frame = CGRectMake(KScreenX, KScreenY, kScreenWidth, kScreenHeight);
+//    self.navigationController.navigationBarHidden = YES;
+    self.view.backgroundColor = [UIColor redColor];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 -(NSArray *)array{
@@ -60,7 +62,7 @@ static NSString *cells = @"cell";
     AddTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cells forIndexPath:indexPath];
     Addtable *addmodel = self.array[indexPath.row];
     cell.model = addmodel;
-    cell.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 

@@ -43,7 +43,7 @@ static NSString *ID = @"cell";
 -(void)viewAppear{
     UIBarButtonItem *LeftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"qq"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButton)];
     self.navigationItem.leftBarButtonItem = LeftBarButtonItem;
-    UIBarButtonItem *RightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButton)];
+    UIBarButtonItem *RightBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButton)];
     self.navigationItem.rightBarButtonItem = RightBarButtonItem;
 }
 -(void)leftBarButton{

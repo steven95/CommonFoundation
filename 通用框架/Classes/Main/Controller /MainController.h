@@ -12,4 +12,5 @@
 -(MainController *)sharedmainViewController;
 -(void)openLeftView;
 - (void)closeLeftView;
+
 @end
