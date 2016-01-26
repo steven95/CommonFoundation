@@ -8,7 +8,8 @@
 #define kScreenWidth          [[UIScreen mainScreen] bounds].size.width / 2 -15
 #define kScreenHeight         [[UIScreen mainScreen] bounds].size.height / 2 - 40
 #define KScreenX              [[UIScreen mainScreen] bounds].size.width / 2 +2
-#define KScreenY              [[UIScreen mainScreen] bounds].origin.y / 2 + 70
+#define KScreenY              [[UIScreen mainScreen] bounds].origin.y / 2 + 80
+#define Kx                     self.view.frame.size.width -31
 
 #import "AddTableViewController.h"
 #import "Addtable.h"
@@ -21,11 +22,15 @@ static NSString *cells = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.tableView registerClass:[AddTableViewCell class] forCellReuseIdentifier:cells];
     self.view.frame = CGRectMake(KScreenX, KScreenY, kScreenWidth, kScreenHeight);
-//    self.navigationController.navigationBarHidden = YES;
-    self.view.backgroundColor = [UIColor redColor];
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.automaticallyAdjustsScrollViewInsets = false;
+    UIImageView *imv = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"YellowDownArrow"]];
+    imv.frame = CGRectMake(Kx , -2, 20, 20);
+    imv.transform =CGAffineTransformMakeRotation(M_PI);
+    [self.view addSubview:imv];
+
 }
 
 -(NSArray *)array{

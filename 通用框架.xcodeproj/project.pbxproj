@@ -38,6 +38,7 @@
 		9EBF57071C552461001E7F66 /* MainTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF57051C552461001E7F66 /* MainTabBarButton.m */; };
 		9EBF570A1C5524B6001E7F66 /* UIView+setFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF57091C5524B6001E7F66 /* UIView+setFrame.m */; };
 		9EBF570D1C55252B001E7F66 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF570C1C55252B001E7F66 /* MainTabBarController.m */; };
+		9EED7D161C579ACD00124CF7 /* coverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EED7D151C579ACD00124CF7 /* coverView.m */; };
 		FA589CE128DBA9E42E27F709 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5AA52396E5E914BCC7CBA6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,8 @@
 		9EBF57091C5524B6001E7F66 /* UIView+setFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+setFrame.m"; sourceTree = "<group>"; };
 		9EBF570B1C55252B001E7F66 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		9EBF570C1C55252B001E7F66 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		9EED7D141C579ACD00124CF7 /* coverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coverView.h; sourceTree = "<group>"; };
+		9EED7D151C579ACD00124CF7 /* coverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coverView.m; sourceTree = "<group>"; };
 		A214681DE2460A93FDAD746E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -401,6 +404,8 @@
 			children = (
 				9EB3FCDD1C55D8D800DD3AC1 /* HomeTableViewCell.h */,
 				9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */,
+				9EED7D141C579ACD00124CF7 /* coverView.h */,
+				9EED7D151C579ACD00124CF7 /* coverView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -754,6 +759,7 @@
 			files = (
 				9E50B6031C43BBB900A93113 /* HomeController.m in Sources */,
 				9EBD6BFF1C566F960017BC92 /* AddTableViewCell.m in Sources */,
+				9EED7D161C579ACD00124CF7 /* coverView.m in Sources */,
 				9EBF57061C552461001E7F66 /* MainTabBar.m in Sources */,
 				9E0D9A671C44878F0049A76C /* MoreViewController.m in Sources */,
 				9E0D9A781C44AA2F0049A76C /* AddrController.m in Sources */,

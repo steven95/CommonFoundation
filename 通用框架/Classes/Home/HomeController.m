@@ -11,14 +11,33 @@
 #import "HomeModel.h"
 #import "HomeTableViewCell.h"
 #import "AddTableViewController.h"
+#import "coverView.h"
 @interface HomeController ()
 @property (nonatomic,strong) NSArray *array;
+@property (nonatomic,strong) MainController *main;
+@property (nonatomic,strong) AddTableViewController *addTabview;
+@property (nonatomic,strong) coverView *myView;
+@property (nonatomic,assign) Boolean new;
+@property (nonatomic,assign) Boolean open;
+
 @end
 static NSString *ID = @"cell";
 @implementation HomeController
-
+//-(coverView *)myView{
+//    if (_myView == nil) {
+//        
+//    }
+//    return _myView;
+//}
+-(AddTableViewController *)addTabview{
+    if (_addTabview == nil) {
+        _addTabview = [AddTableViewController new];
+    }
+    return _addTabview;
+}
 -(NSArray *)array{
     if (_array == nil) {
+        
         //获取json
         NSString *path = [[NSBundle mainBundle]pathForResource:@"products.json" ofType:nil];
         //将json转换成data
@@ -38,7 +57,14 @@ static NSString *ID = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
+    MainController *mainview = [MainController new];
+    self.main = [mainview sharedmainViewController];
     [self viewAppear];
+    _myView = [[coverView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    _myView.alpha = 0.9;
+    _myView.backgroundColor = [UIColor redColor];
+    [self.navigationController addChildViewController:self.addTabview];
+    
 }
 -(void)viewAppear{
     UIBarButtonItem *LeftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"qq"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButton)];
@@ -46,20 +72,40 @@ static NSString *ID = @"cell";
     UIBarButtonItem *RightBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButton)];
     self.navigationItem.rightBarButtonItem = RightBarButtonItem;
 }
+
 -(void)leftBarButton{
-    MainController *main = [MainController new];
-    [[main sharedmainViewController] openLeftView];
+    switch (self.open) {
+        case NO:
+   [[self.main sharedmainViewController] openLeftView];
+            self.open = YES;
+            break;
+         case YES:
+            self.open = NO;
+    [[self.main sharedmainViewController] closeLeftView];
+            break;
+        default:
+            break;
+    }
+    
 }
 -(void)rightBarButton{
-    AddTableViewController *add = [AddTableViewController new];
-    [self.navigationController addChildViewController:add];
-    [self.navigationController.view addSubview:add.view];
+      switch (self.new) {
+        case NO:
+            [self.navigationController.view addSubview:_addTabview.view];
+            [self.view addSubview:self.myView];
+            self.new = YES;
+            break;
+        case YES:
+            self.new = NO;
+            [self.addTabview.view removeFromSuperview];
+            break;
+        default:
+            break;
+    }
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)removeview{
+    [_myView removeFromSuperview];
 }
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

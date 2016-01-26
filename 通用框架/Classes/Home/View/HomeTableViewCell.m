@@ -17,8 +17,8 @@
 
 -(void)setHome:(HomeModel *)home{
        _home = home;
-NSMutableString *strM = (NSMutableString *)home.icon;
- NSString *str =[strM stringByReplacingOccurrencesOfString:@"@2x.png" withString:@""];
+      NSMutableString *strM = (NSMutableString *)home.icon;
+      NSString *str =[strM stringByReplacingOccurrencesOfString:@"@2x.png" withString:@""];
      self.imageView.image = [UIImage imageNamed:str];
     self.textLabel.text = home.title;
     

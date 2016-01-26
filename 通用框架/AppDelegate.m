@@ -23,6 +23,7 @@
 //    MainViewController * tabc = [[MainViewController alloc]init];
 //    MainController *mainController = [MainController new];
     MessageViewController *message = [MessageViewController new];
+    
      self.window.rootViewController = message;
     [self.window makeKeyAndVisible];
     return YES;

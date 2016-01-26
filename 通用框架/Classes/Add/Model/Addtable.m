@@ -16,7 +16,7 @@
     if (self == [super init]) {
         [self setValuesForKeysWithDictionary:dict];
     }
-    return self;
+    return [self init];
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
 

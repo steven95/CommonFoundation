@@ -21,6 +21,7 @@
 @interface MainController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UISwipeGestureRecognizer *leftswipeGestureRecongnizer;
 @property (nonatomic,strong) UISwipeGestureRecognizer *RightswipeGestureRecongnizer;
+@property (nonatomic,strong) UIPanGestureRecognizer *panGestureRecognizer;
 //滑动速度系数-建议在0.5-1之间。默认为0.5
 @property (nonatomic, assign) CGFloat speedf;
 @property (nonatomic,assign) BOOL isDranging;
@@ -45,15 +46,14 @@ static MainController *mainviewController = nil;
     [self addChildViewController:mainViewController];
     [self.view addSubview:mainViewController.view];
     [self SwipeGestureRecognizer];
+    mainviewController = self;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
 //注册滑动效果
 -(void)SwipeGestureRecognizer{
     [self.view addObserver:self forKeyPath:@"Kframe" options:NSKeyValueObservingOptionNew context:nil];
-    //    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(PanGesture:)];
+        self.panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(PanGesture:)];
     self.leftswipeGestureRecongnizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftswipe:)];
     self.RightswipeGestureRecongnizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(Rightswipe:)];
     [self.view addGestureRecognizer:self.leftswipeGestureRecongnizer];
@@ -62,9 +62,9 @@ static MainController *mainviewController = nil;
     self.RightswipeGestureRecongnizer.direction = UISwipeGestureRecognizerDirectionRight;
     self.leftswipeGestureRecongnizer.delegate = self;
     self.RightswipeGestureRecongnizer.delegate =self;
-    //   [self.view addGestureRecognizer:self.panGestureRecognizer];
-    //    [self.panGestureRecognizer setCancelsTouchesInView:YES];
-    //    self.panGestureRecognizer.delegate = self;
+       [self.view addGestureRecognizer:self.panGestureRecognizer];
+        [self.panGestureRecognizer setCancelsTouchesInView:YES];
+        self.panGestureRecognizer.delegate = self;
 }
 -(void)leftswipe:(UISwipeGestureRecognizer *)swipeGestureRecongnizer{
     if (swipeGestureRecongnizer.direction == UISwipeGestureRecognizerDirectionLeft)
@@ -85,15 +85,14 @@ static MainController *mainviewController = nil;
         self.view.center = CGPointMake(kScreenWidth / 2, kScreenHeight / 2);
     }];
 }
-
 /**
  @brief 打开左视图
  */
 - (void)openLeftView{
-    [UIView beginAnimations:nil context:nil];
-    self.view.center = kMainPageCenter;
-    self.closed = YES;
-    [UIView commitAnimations];
+   [UIView animateWithDuration:0.5 animations:^{
+       self.view.center = kMainPageCenter;
+       self.closed = YES;
+   }];
 }
 /*
 #pragma mark - Navigation
