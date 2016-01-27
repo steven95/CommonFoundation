@@ -12,23 +12,26 @@
 #import "HomeTableViewCell.h"
 #import "AddTableViewController.h"
 #import "coverView.h"
+#import "minview.h"
 @interface HomeController ()
 @property (nonatomic,strong) NSArray *array;
 @property (nonatomic,strong) MainController *main;
 @property (nonatomic,strong) AddTableViewController *addTabview;
 @property (nonatomic,strong) coverView *myView;
+@property (nonatomic,strong) minview *minView;
 @property (nonatomic,assign) Boolean new;
 @property (nonatomic,assign) Boolean open;
-
 @end
 static NSString *ID = @"cell";
 @implementation HomeController
-//-(coverView *)myView{
-//    if (_myView == nil) {
-//        
-//    }
-//    return _myView;
-//}
+
+-(coverView *)myView{
+    if (_myView == nil) {
+        _myView = [[coverView alloc]initWithFrame:self.tableView.bounds];
+        _myView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.2];
+    }
+    return _myView;
+}
 -(AddTableViewController *)addTabview{
     if (_addTabview == nil) {
         _addTabview = [AddTableViewController new];
@@ -60,28 +63,43 @@ static NSString *ID = @"cell";
     MainController *mainview = [MainController new];
     self.main = [mainview sharedmainViewController];
     [self viewAppear];
-    _myView = [[coverView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    _myView.alpha = 0.9;
-    _myView.backgroundColor = [UIColor redColor];
     [self.navigationController addChildViewController:self.addTabview];
-    
+    //此代码可以解决tabbar透明的问题,要记住了
+     self.edgesForExtendedLayout = UIRectEdgeNone;
+    _minView = [[minview alloc]initWithFrame:CGRectMake(0, 0, 100, 650)];
+    _minView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.1];
 }
 -(void)viewAppear{
     UIBarButtonItem *LeftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"qq"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButton)];
     self.navigationItem.leftBarButtonItem = LeftBarButtonItem;
     UIBarButtonItem *RightBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButton)];
     self.navigationItem.rightBarButtonItem = RightBarButtonItem;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(rightBarButton) name:@"close" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(leftBarButton) name:@"minclose" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(add) name:@"add" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(rem) name:@"rem" object:nil];
+    
 }
-
+-(void)add{
+    
+   [self.view addSubview:_minView];
+    self.open = YES;
+    }
+-(void)rem{
+    [_minView removeFromSuperview];
+    self.open = NO;
+}
 -(void)leftBarButton{
     switch (self.open) {
         case NO:
-   [[self.main sharedmainViewController] openLeftView];
-            self.open = YES;
+    [self.view addSubview:_minView];
+          [[self.main sharedmainViewController] openLeftView];
+        self.open = YES;
             break;
          case YES:
             self.open = NO;
     [[self.main sharedmainViewController] closeLeftView];
+         [_minView removeFromSuperview];
             break;
         default:
             break;
@@ -98,13 +116,11 @@ static NSString *ID = @"cell";
         case YES:
             self.new = NO;
             [self.addTabview.view removeFromSuperview];
+              [self.myView removeFromSuperview];
             break;
         default:
             break;
     }
-}
--(void)removeview{
-    [_myView removeFromSuperview];
 }
 #pragma mark - Table view data source
 
@@ -128,7 +144,7 @@ static NSString *ID = @"cell";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 80;
 }
 /*
 // Override to support conditional editing of the table view.

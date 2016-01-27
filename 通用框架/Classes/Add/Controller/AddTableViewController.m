@@ -7,8 +7,8 @@
 //
 #define kScreenWidth          [[UIScreen mainScreen] bounds].size.width / 2 -15
 #define kScreenHeight         [[UIScreen mainScreen] bounds].size.height / 2 - 40
-#define KScreenX              [[UIScreen mainScreen] bounds].size.width / 2 +2
-#define KScreenY              [[UIScreen mainScreen] bounds].origin.y / 2 + 80
+#define KScreenX              [[UIScreen mainScreen] bounds].size.width /2 +2
+#define KScreenY               80
 #define Kx                     self.view.frame.size.width -31
 
 #import "AddTableViewController.h"
@@ -22,7 +22,7 @@ static NSString *cells = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    self.edgesForExtendedLayout = UIRectEdgeTop;
     [self.tableView registerClass:[AddTableViewCell class] forCellReuseIdentifier:cells];
     self.view.frame = CGRectMake(KScreenX, KScreenY, kScreenWidth, kScreenHeight);
     self.automaticallyAdjustsScrollViewInsets = false;
@@ -61,8 +61,9 @@ static NSString *cells = @"cell";
 
     return self.array.count;
 }
-
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
 - (AddTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AddTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cells forIndexPath:indexPath];
     Addtable *addmodel = self.array[indexPath.row];
@@ -70,7 +71,6 @@ static NSString *cells = @"cell";
     cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.

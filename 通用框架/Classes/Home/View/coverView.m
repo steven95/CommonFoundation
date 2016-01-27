@@ -11,10 +11,14 @@
 #import "coverView.h"
 #import "HomeController.h"
 
+@interface coverView ()
+@property (nonatomic,strong) HomeController *home;
+@end
 @implementation coverView
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    HomeController *home = [HomeController new];
-    [home removeview];
+//    [self removeFromSuperview];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"close" object:self];
 }
 @end

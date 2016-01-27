@@ -21,6 +21,7 @@
 		9E50B6031C43BBB900A93113 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50B6021C43BBB900A93113 /* HomeController.m */; };
 		9E50B6091C43BBF800A93113 /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50B6081C43BBF800A93113 /* ProfileController.m */; };
 		9E50B60C1C43BC5500A93113 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50B60B1C43BC5500A93113 /* MainViewController.m */; };
+		9E59E56A1C5866020019822F /* minview.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E59E5691C5866020019822F /* minview.m */; };
 		9EB3FCD91C55B87400DD3AC1 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB3FCD81C55B87400DD3AC1 /* products.json */; };
 		9EB3FCDC1C55C3FB00DD3AC1 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDB1C55C3FB00DD3AC1 /* HomeModel.m */; };
 		9EB3FCDF1C55D8D800DD3AC1 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */; };
@@ -38,7 +39,7 @@
 		9EBF57071C552461001E7F66 /* MainTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF57051C552461001E7F66 /* MainTabBarButton.m */; };
 		9EBF570A1C5524B6001E7F66 /* UIView+setFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF57091C5524B6001E7F66 /* UIView+setFrame.m */; };
 		9EBF570D1C55252B001E7F66 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF570C1C55252B001E7F66 /* MainTabBarController.m */; };
-		9EED7D161C579ACD00124CF7 /* coverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EED7D151C579ACD00124CF7 /* coverView.m */; };
+		9EDDE67F1C57C883007D0C63 /* coverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDDE67E1C57C883007D0C63 /* coverView.m */; };
 		FA589CE128DBA9E42E27F709 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5AA52396E5E914BCC7CBA6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		9E50B60A1C43BC5500A93113 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9E50B60B1C43BC5500A93113 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9E50B60D1C43BF7900A93113 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		9E59E5681C5866020019822F /* minview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = minview.h; sourceTree = "<group>"; };
+		9E59E5691C5866020019822F /* minview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = minview.m; sourceTree = "<group>"; };
 		9EB3FCD81C55B87400DD3AC1 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		9EB3FCDA1C55C3FB00DD3AC1 /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
 		9EB3FCDB1C55C3FB00DD3AC1 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
@@ -124,8 +127,8 @@
 		9EBF57091C5524B6001E7F66 /* UIView+setFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+setFrame.m"; sourceTree = "<group>"; };
 		9EBF570B1C55252B001E7F66 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		9EBF570C1C55252B001E7F66 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
-		9EED7D141C579ACD00124CF7 /* coverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coverView.h; sourceTree = "<group>"; };
-		9EED7D151C579ACD00124CF7 /* coverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coverView.m; sourceTree = "<group>"; };
+		9EDDE67D1C57C883007D0C63 /* coverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coverView.h; sourceTree = "<group>"; };
+		9EDDE67E1C57C883007D0C63 /* coverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coverView.m; sourceTree = "<group>"; };
 		A214681DE2460A93FDAD746E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -402,10 +405,12 @@
 		9E50B5ED1C43BB2400A93113 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9EDDE67D1C57C883007D0C63 /* coverView.h */,
+				9EDDE67E1C57C883007D0C63 /* coverView.m */,
 				9EB3FCDD1C55D8D800DD3AC1 /* HomeTableViewCell.h */,
 				9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */,
-				9EED7D141C579ACD00124CF7 /* coverView.h */,
-				9EED7D151C579ACD00124CF7 /* coverView.m */,
+				9E59E5681C5866020019822F /* minview.h */,
+				9E59E5691C5866020019822F /* minview.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -759,7 +764,8 @@
 			files = (
 				9E50B6031C43BBB900A93113 /* HomeController.m in Sources */,
 				9EBD6BFF1C566F960017BC92 /* AddTableViewCell.m in Sources */,
-				9EED7D161C579ACD00124CF7 /* coverView.m in Sources */,
+				9E59E56A1C5866020019822F /* minview.m in Sources */,
+				9EDDE67F1C57C883007D0C63 /* coverView.m in Sources */,
 				9EBF57061C552461001E7F66 /* MainTabBar.m in Sources */,
 				9E0D9A671C44878F0049A76C /* MoreViewController.m in Sources */,
 				9E0D9A781C44AA2F0049A76C /* AddrController.m in Sources */,

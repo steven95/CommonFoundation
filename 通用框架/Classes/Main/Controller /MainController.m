@@ -8,7 +8,7 @@
 //
 #define kScreenWidth          [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight         [[UIScreen mainScreen] bounds].size.height
-#define kMorePageDistance  100
+#define kMorePageDistance  90
 #define kMainPageCenter  CGPointMake(kScreenWidth + kScreenWidth  / 2.0 - kMorePageDistance, kScreenHeight / 2) //打开左侧窗时，中视图(右视图)露出的宽度
 #define maxY 60
 #define targetRX 300;
@@ -21,7 +21,7 @@
 @interface MainController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UISwipeGestureRecognizer *leftswipeGestureRecongnizer;
 @property (nonatomic,strong) UISwipeGestureRecognizer *RightswipeGestureRecongnizer;
-@property (nonatomic,strong) UIPanGestureRecognizer *panGestureRecognizer;
+//@property (nonatomic,strong) UIPanGestureRecognizer *panGestureRecognizer;
 //滑动速度系数-建议在0.5-1之间。默认为0.5
 @property (nonatomic, assign) CGFloat speedf;
 @property (nonatomic,assign) BOOL isDranging;
@@ -53,7 +53,7 @@ static MainController *mainviewController = nil;
 //注册滑动效果
 -(void)SwipeGestureRecognizer{
     [self.view addObserver:self forKeyPath:@"Kframe" options:NSKeyValueObservingOptionNew context:nil];
-        self.panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(PanGesture:)];
+//        self.panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(PanGesture:)];
     self.leftswipeGestureRecongnizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftswipe:)];
     self.RightswipeGestureRecongnizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(Rightswipe:)];
     [self.view addGestureRecognizer:self.leftswipeGestureRecongnizer];
@@ -62,9 +62,9 @@ static MainController *mainviewController = nil;
     self.RightswipeGestureRecongnizer.direction = UISwipeGestureRecognizerDirectionRight;
     self.leftswipeGestureRecongnizer.delegate = self;
     self.RightswipeGestureRecongnizer.delegate =self;
-       [self.view addGestureRecognizer:self.panGestureRecognizer];
-        [self.panGestureRecognizer setCancelsTouchesInView:YES];
-        self.panGestureRecognizer.delegate = self;
+//       [self.view addGestureRecognizer:self.panGestureRecognizer];
+//        [self.panGestureRecognizer setCancelsTouchesInView:YES];
+//        self.panGestureRecognizer.delegate = self;
 }
 -(void)leftswipe:(UISwipeGestureRecognizer *)swipeGestureRecongnizer{
     if (swipeGestureRecongnizer.direction == UISwipeGestureRecognizerDirectionLeft)
@@ -80,6 +80,8 @@ static MainController *mainviewController = nil;
  @brief 关闭左视图
  */
 - (void)closeLeftView{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"rem" object:self];
     [UIView animateWithDuration:0.5 animations:^{
         self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
         self.view.center = CGPointMake(kScreenWidth / 2, kScreenHeight / 2);
@@ -89,6 +91,8 @@ static MainController *mainviewController = nil;
  @brief 打开左视图
  */
 - (void)openLeftView{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"add" object:self];
    [UIView animateWithDuration:0.5 animations:^{
        self.view.center = kMainPageCenter;
        self.closed = YES;
