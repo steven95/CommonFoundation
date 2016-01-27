@@ -10,8 +10,6 @@
 #import "MainTabBarController.h"
 
 @interface MainTabBarController ()
-
-
 @end
 static MainTabBarController *mainTabBarController = nil;
 @implementation MainTabBarController

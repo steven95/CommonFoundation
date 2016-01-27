@@ -38,27 +38,39 @@ static NSString *ID = @"cell";
     }
     return _addTabview;
 }
--(NSArray *)array{
-    if (_array == nil) {
-        
-        //获取json
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"products.json" ofType:nil];
-        //将json转换成data
-        NSData *data = [NSData dataWithContentsOfFile:path];
-        //将json转化成数组
-        
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSMutableArray *arrayM = [NSMutableArray array];
-        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            HomeModel *model = [HomeModel homeWithDic:obj];
-            [arrayM addObject:model];
-        }];
-        _array = arrayM;
-    }
-    return _array;
+//-(NSArray *)array{
+//    
+////        //获取json
+////        NSString *path = [[NSBundle mainBundle]pathForResource:@"products.json" ofType:nil];
+////        //将json转换成data
+////        NSData *data = [NSData dataWithContentsOfFile:path];
+////        //将json转化成数组
+////        
+////        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+////        NSMutableArray *arrayM = [NSMutableArray array];
+////        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+////            HomeModel *model = [HomeModel homeWithDic:obj];
+////            [arrayM addObject:model];
+////        }];
+////        _array = arrayM;
+//    }
+//    return _array;
+//}
+-(void)setArray:(NSArray *)array{
+    _array = array;
+    [self.tableView reloadData];
+}
+-(void)setUrlString:(NSString *)urlString{
+    self.array = nil;
+    [HomeModel homeModelWithstring:urlString Success:^(NSArray *array) {
+        self.array = array;
+    } errorBlock:^(NSError *errer) {
+        NSLog(@"取数据出错%@",errer);
+    }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUrlString:nil];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     MainController *mainview = [MainController new];
     self.main = [mainview sharedmainViewController];
@@ -130,7 +142,6 @@ static NSString *ID = @"cell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return self.array.count;
 }
 
@@ -138,7 +149,7 @@ static NSString *ID = @"cell";
 -(HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeTableViewCell *cell = [[HomeTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
      HomeModel *home = self.array[indexPath.row];
-   cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor whiteColor];
     cell.home = home;
     return cell;
 }

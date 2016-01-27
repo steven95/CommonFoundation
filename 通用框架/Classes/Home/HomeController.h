@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeController : UITableViewController
-
+@property (nonatomic, copy) NSString *urlString;
 @end

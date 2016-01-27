@@ -10,4 +10,5 @@
 #import "HomeModel.h"
 @interface HomeTableViewCell : UITableViewCell
 @property (nonatomic,strong) HomeModel *home;
+@property (nonatomic,strong) NSString *urlstr;
 @end

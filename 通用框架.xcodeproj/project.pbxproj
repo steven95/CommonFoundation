@@ -22,6 +22,7 @@
 		9E50B6091C43BBF800A93113 /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50B6081C43BBF800A93113 /* ProfileController.m */; };
 		9E50B60C1C43BC5500A93113 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50B60B1C43BC5500A93113 /* MainViewController.m */; };
 		9E59E56A1C5866020019822F /* minview.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E59E5691C5866020019822F /* minview.m */; };
+		9E85FC601C58998E00EC19E7 /* NetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E85FC5F1C58998E00EC19E7 /* NetWorkTools.m */; };
 		9EB3FCD91C55B87400DD3AC1 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB3FCD81C55B87400DD3AC1 /* products.json */; };
 		9EB3FCDC1C55C3FB00DD3AC1 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDB1C55C3FB00DD3AC1 /* HomeModel.m */; };
 		9EB3FCDF1C55D8D800DD3AC1 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FCDE1C55D8D800DD3AC1 /* HomeTableViewCell.m */; };
@@ -95,6 +96,8 @@
 		9E50B60D1C43BF7900A93113 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		9E59E5681C5866020019822F /* minview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = minview.h; sourceTree = "<group>"; };
 		9E59E5691C5866020019822F /* minview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = minview.m; sourceTree = "<group>"; };
+		9E85FC5E1C58998E00EC19E7 /* NetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkTools.h; sourceTree = "<group>"; };
+		9E85FC5F1C58998E00EC19E7 /* NetWorkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkTools.m; sourceTree = "<group>"; };
 		9EB3FCD81C55B87400DD3AC1 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		9EB3FCDA1C55C3FB00DD3AC1 /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
 		9EB3FCDB1C55C3FB00DD3AC1 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 				9EBF57091C5524B6001E7F66 /* UIView+setFrame.m */,
 				9E50B5B31C43B77400A93113 /* AppDelegate.h */,
 				9E50B5B41C43B77400A93113 /* AppDelegate.m */,
+				9E85FC5E1C58998E00EC19E7 /* NetWorkTools.h */,
+				9E85FC5F1C58998E00EC19E7 /* NetWorkTools.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -786,6 +791,7 @@
 				9E50B5B21C43B77400A93113 /* main.m in Sources */,
 				9EBF570A1C5524B6001E7F66 /* UIView+setFrame.m in Sources */,
 				9EBF56FE1C552335001E7F66 /* MessageTabbarViewController.m in Sources */,
+				9E85FC601C58998E00EC19E7 /* NetWorkTools.m in Sources */,
 				9E0D9A5B1C44859F0049A76C /* MainTableViewController.m in Sources */,
 				9E50B6091C43BBF800A93113 /* ProfileController.m in Sources */,
 				9EBF56FD1C552335001E7F66 /* MessageController.m in Sources */,
