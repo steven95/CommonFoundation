@@ -13,6 +13,7 @@
 #import "AddTableViewController.h"
 #import "coverView.h"
 #import "minview.h"
+#import "refreshControl.h"
 @interface HomeController ()
 @property (nonatomic,strong) NSArray *array;
 @property (nonatomic,strong) MainController *main;
@@ -38,39 +39,21 @@ static NSString *ID = @"cell";
     }
     return _addTabview;
 }
-//-(NSArray *)array{
-//    
-////        //获取json
-////        NSString *path = [[NSBundle mainBundle]pathForResource:@"products.json" ofType:nil];
-////        //将json转换成data
-////        NSData *data = [NSData dataWithContentsOfFile:path];
-////        //将json转化成数组
-////        
-////        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-////        NSMutableArray *arrayM = [NSMutableArray array];
-////        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-////            HomeModel *model = [HomeModel homeWithDic:obj];
-////            [arrayM addObject:model];
-////        }];
-////        _array = arrayM;
-//    }
-//    return _array;
-//}
+
 -(void)setArray:(NSArray *)array{
     _array = array;
     [self.tableView reloadData];
 }
+
 -(void)setUrlString:(NSString *)urlString{
     self.array = nil;
     [HomeModel homeModelWithstring:urlString Success:^(NSArray *array) {
         self.array = array;
     } errorBlock:^(NSError *errer) {
-        NSLog(@"取数据出错%@",errer);
     }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUrlString:nil];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     MainController *mainview = [MainController new];
     self.main = [mainview sharedmainViewController];
@@ -78,8 +61,15 @@ static NSString *ID = @"cell";
     [self.navigationController addChildViewController:self.addTabview];
     //此代码可以解决tabbar透明的问题,要记住了
      self.edgesForExtendedLayout = UIRectEdgeNone;
-    _minView = [[minview alloc]initWithFrame:CGRectMake(0, 0, 100, 650)];
-    _minView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.1];
+     _minView = [[minview alloc]initWithFrame:CGRectMake(0, 0, 100, 650)];
+     _minView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.1];
+      [self setUrlString:nil];
+    self.refreshControl = [refreshControl new];
+    [self.refreshControl addTarget:self action:@selector(pull) forControlEvents:UIControlEventValueChanged];
+}
+-(void)pull{
+  [self.view setNeedsDisplay];
+  [self setUrlString:nil];
 }
 -(void)viewAppear{
     UIBarButtonItem *LeftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"qq"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButton)];
@@ -90,8 +80,9 @@ static NSString *ID = @"cell";
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(leftBarButton) name:@"minclose" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(add) name:@"add" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(rem) name:@"rem" object:nil];
-    
 }
+
+
 -(void)add{
     
    [self.view addSubview:_minView];

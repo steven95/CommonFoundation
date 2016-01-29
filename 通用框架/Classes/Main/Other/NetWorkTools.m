@@ -35,11 +35,10 @@ static NSString *strurl = nil;
     static AFHTTPSessionManager *sharedNetWorkTool = nil;
     static dispatch_once_t instance;
     dispatch_once(&instance, ^{
-        
-        NSString *str = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-140.html";
-
-        NSURL *baseUrl = [NSURL URLWithString:str];
-        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSString *strr = [self str:(strurl)];
+//    NSString *str = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-140.html";
+    NSURL *baseUrl = [NSURL URLWithString:strr];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         config.timeoutIntervalForRequest = 15;
         sharedNetWorkTool = [[self alloc]initWithBaseURL:baseUrl sessionConfiguration:config];
         sharedNetWorkTool.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json",@"text/html", @"text/javascript", nil];

@@ -19,16 +19,13 @@
 
 -(void)setHome:(HomeModel *)home{
        _home = home;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSURL *url = [NSURL URLWithString:home.imgsrc];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *img = [UIImage imageWithData:data];
-        NSLog(@"%@",img);
-        self.imageView.image = img;
-        NSLog(@"%@",self.imageView.image);
-    });
-
-       self.textLabel.text = home.title;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+          NSURL *url = [NSURL URLWithString:home.imgsrc];
+          NSData *data = [NSData dataWithContentsOfURL:url];
+          UIImage *img = [UIImage imageWithData:data];
+          self.imageView.image = img;
+      });
+      self.textLabel.text = home.title;
 }
 -(void)layoutSubviews{
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
