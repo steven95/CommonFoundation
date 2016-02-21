@@ -18,5 +18,5 @@
 -(instancetype)initWithDic:(NSDictionary *)dic;
 +(instancetype)homeWithDic:(NSDictionary *)dic;
 
-+(void)homeModelWithstring:(NSString *)urlstring   Success:(void(^)(NSArray *array))success errorBlock:(void(^)(NSError *errer))errorBlock;
++(void)homeModelWithstring:(NSString *)urlstring   Success:(void(^)(NSMutableArray *array))success errorBlock:(void(^)(NSError *errer))errorBlock;
 @end

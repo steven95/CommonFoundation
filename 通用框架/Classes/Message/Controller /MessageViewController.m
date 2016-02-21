@@ -26,9 +26,11 @@
     [super viewDidLoad];
     MssageNavigationViewController *messNavController = [MssageNavigationViewController  new];
     messNavController.view.backgroundColor = [UIColor redColor];
+    [self addChildViewController:messNavController];
     [self.view addSubview:messNavController.view];
     MessageTabbarViewController *messtabBC = [MessageTabbarViewController new];
     messtabBC =[messtabBC sharedmessTabBarController];
+    [self addChildViewController:messtabBC];
     [self.view addSubview:messtabBC.tabBar];
     MainController *mainview = [MainController new];
     self.main = [mainview sharedmainViewController];

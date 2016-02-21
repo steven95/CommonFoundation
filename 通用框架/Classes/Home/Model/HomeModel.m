@@ -25,7 +25,7 @@
     return [[self alloc]initWithDic:dic];
 }
 
-+(void)homeModelWithstring:(NSString *)urlstring   Success:(void(^)(NSArray *array))success errorBlock:(void(^)(NSError *errer))errorBlock{
++(void)homeModelWithstring:(NSString *)urlstring   Success:(void(^)(NSMutableArray *array))success errorBlock:(void(^)(NSError *errer))errorBlock{
     
       [[NetWorkTools sharedNetWorkTool] GET: [NetWorkTools str:@"http://c.m.163.com/nc/article/headline/T1348647853363/0-140.html"] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task,NSDictionary *dic) {
              //字典转模型

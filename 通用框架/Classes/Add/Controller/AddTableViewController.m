@@ -15,7 +15,7 @@
 #import "Addtable.h"
 #import "AddTableViewCell.h"
 @interface AddTableViewController ()
-@property (nonatomic,strong) NSArray *array;
+@property (nonatomic,strong) NSMutableArray *array;
 @end
 static NSString *cells = @"cell";
 @implementation AddTableViewController
@@ -33,7 +33,7 @@ static NSString *cells = @"cell";
 
 }
 
--(NSArray *)array{
+-(NSMutableArray *)array{
     if (_array == nil) {
         //获取json路径
         NSString *path = [[NSBundle mainBundle]pathForResource:@"more_project.json" ofType:nil];
@@ -62,6 +62,7 @@ static NSString *cells = @"cell";
     return self.array.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
     return 80;
 }
 - (AddTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -72,25 +73,28 @@ static NSString *cells = @"cell";
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
+
+// Override to support conditional editing of the table view.
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//     //Return NO if you do not want the specified item to be editable.
+//    return YES;
+//}
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.array removeObjectAtIndex:[indexPath row]];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        
     }   
 }
-*/
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
 
 /*
 // Override to support rearranging the table view.

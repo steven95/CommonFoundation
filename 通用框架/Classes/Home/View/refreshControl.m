@@ -14,7 +14,7 @@
 @implementation refreshControl
 
 - (void)drawRect:(CGRect)rect {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSMutableArray *array = [NSMutableArray array];
         UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 250)];
         for (int i = 1; i <= 4; i++) {
@@ -27,11 +27,7 @@
         [self addSubview:imv];
         [imv performSelector:@selector(setAnimationImages:) withObject:nil afterDelay:imv.animationDuration];
     });
-    
-    
 }
-//-(void)layoutSubviews{
-//    
-//}
+
 
 @end

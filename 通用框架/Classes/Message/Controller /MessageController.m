@@ -26,6 +26,7 @@ static NSString *MessageCell = @"MessageCell";
 
 -(void)tabBarBtn{
      MessageTabbarViewController *messtabB = [MessageTabbarViewController new];
+//    [self addChildViewController:messtabB];
     messtabB =[messtabB sharedmessTabBarController];
     MainTabBarButton *btn = [MainTabBarButton new];
     [btn image:UIImageRenderingModeAlwaysOriginal imageName:@"xingxing" imageHightName:@"xingxing" index:0];
@@ -55,6 +56,7 @@ static NSString *MessageCell = @"MessageCell";
 }
 
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor blueColor];
@@ -72,17 +74,20 @@ static NSString *MessageCell = @"MessageCell";
 }
 */
 
-/*
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        // Delete the row from the data source
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        
+//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//    }
+//}
+//- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return @"删除";
+//}
+
 
 /*
 // Override to support rearranging the table view.

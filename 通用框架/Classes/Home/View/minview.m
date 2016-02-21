@@ -12,8 +12,10 @@
 @implementation minview
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:@"minclose" object:self];
+   [[NSNotificationCenter defaultCenter] postNotificationName:@"minclose" object:self];
     
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
